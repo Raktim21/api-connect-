@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -25,6 +26,9 @@ class DashboardController extends Controller
                 "msg"
             ];
             
+            $user = User::where('id', Auth::user()->id)->first();
+            $user->total_search = $user->total_search + 1;
+            $user->save();
             
             if (empty($data)) {
                 $final_datas = [];
@@ -62,6 +66,9 @@ class DashboardController extends Controller
                 "arbcimprname",
             ];
 
+            $user = User::where('id', Auth::user()->id)->first();
+            $user->total_search = $user->total_search + 1;
+            $user->save();
 
 
             if (empty($data)) {

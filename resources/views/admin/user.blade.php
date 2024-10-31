@@ -37,6 +37,7 @@
                             <th>Email</th>
                             <th>Port</th>
                             <th>Last Login</th>
+                            <th>Number of Queries</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -49,16 +50,17 @@
                             <td>{{ $user->port }}</td>
                             <td>
                                 @if ($user->last_login == null)
-                                <span class="badge badge-danger">N/A</span>
+                                    <span class="badge badge-danger">N/A</span>
                                 @else
-                                {{ \Carbon\Carbon::parse($user->last_login)->diffForHumans() }}
+                                    {{ \Carbon\Carbon::parse($user->last_login)->diffForHumans() }}
                                 @endif
                             </td>
+                            <td>{{ $user->total_search }}</td>
                             <td>
                                 @if ($user->status == 1)
-                                <span class="badge badge-success">Active</span>
+                                    <span class="badge badge-success">Active</span>
                                 @else
-                                <span class="badge badge-danger">Inactive</span>
+                                    <span class="badge badge-danger">Inactive</span>
                                 @endif
                             </td>
                             <td>
