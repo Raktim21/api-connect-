@@ -56,10 +56,10 @@
                                             <input class="form-control" type="email" name="email" required placeholder="Email">
                                         </div>
 
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label class="col-form-label">Port</label>
                                             <input class="form-control" type="number" name="port" required placeholder="Port">
-                                        </div>
+                                        </div> --}}
                                         
                                         <div class="form-group">
                                             <label class="col-form-label">Password</label>

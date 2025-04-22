@@ -67,13 +67,13 @@ class AuthController extends Controller
                 'regex:/^[\w\.-]+@[\w\.-]+\.(com|net|sa)$/'
             ],
             'password' => ['required', 'confirmed', 'min:6'],
-            'port'     => ['required', 'numeric']
+            // 'port'     => ['required', 'numeric']
         ]);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'port' => $request->port,
+            // 'port' => $request->port,
             'last_login' => Carbon::now(),
         ]);
         Auth::login($user);

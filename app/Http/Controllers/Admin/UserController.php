@@ -30,13 +30,13 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
-            'port' => 'required|numeric',
+            // 'port' => 'required|numeric',
         ]);
 
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->port = $request->port;
+        // $user->port = $request->port;
         $user->save();
         return redirect()->back()->with('success', 'User updated successfully');
     }

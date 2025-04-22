@@ -35,7 +35,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Port</th>
+                            {{-- <th>Port</th> --}}
                             <th>Last Login</th>
                             <th>Number of Queries</th>
                             <th>Status</th>
@@ -47,7 +47,7 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->port }}</td>
+                            {{-- <td>{{ $user->port }}</td> --}}
                             <td>
                                 @if ($user->last_login == null)
                                     <span class="badge badge-danger">N/A</span>
@@ -97,10 +97,10 @@
                                                     <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $user->email) }}" required>
                                                 </div>
 
-                                                <div class="form-group">
+                                                {{-- <div class="form-group">
                                                     <label for="port">Port</label>
                                                     <input type="number" name="port" id="port" class="form-control" value="{{ old('port', $user->port) }}" required>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

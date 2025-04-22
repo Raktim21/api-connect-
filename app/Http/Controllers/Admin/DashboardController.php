@@ -55,7 +55,7 @@ class DashboardController extends Controller
 
         if (request()->search && request()->search != null) {
             
-            $data = Http::get('https://oga.fasah.sa/api/applicationSupport/api/trader?importerNumber='.request()->search.'&port='. Auth::user()->port)->json();
+            $data = Http::get('https://oga.fasah.sa/api/applicationSupport/api/trader?importerNumber='.request()->search.'&port='. request()->port)->json();
             
             $key = [
                 "hqimprnbr",
@@ -66,6 +66,7 @@ class DashboardController extends Controller
                 "arbcimprname",
             ];
 
+            // dd($data);
             $user = User::where('id', Auth::user()->id)->first();
             $user->total_search = $user->total_search + 1;
             $user->save();

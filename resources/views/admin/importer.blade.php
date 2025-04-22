@@ -20,6 +20,12 @@
                     <div class="flex-grow-1 text-end">
                         <form action="{{ route('admin.importer.index') }}" method="GET">
                             <div class="btn-group">
+                                <select name="port" id="port" class="form-control" style="boarder:1px solid black">
+                                    <option value="" @if(request('port') == null) selected @endif>--Select--</option>
+                                    <option value="23" @if(request('port') == 23) selected @endif>RUH</option>
+                                    <option value="11" @if(request('port') == 11) selected @endif>JED</option>
+                                    <option value="20" @if(request('port') == 20) selected @endif>DMM</option>
+                                </select>
                                 <input class="form-control" type="text" name="search" placeholder="Search" style="boarder:1px solid black" value="{{ request('search') }}">
                                 <button class="btn btn-primary" type="submit">
                                     Search
