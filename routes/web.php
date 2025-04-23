@@ -24,11 +24,17 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
     Route::get('/importer',[DashboardController::class,'importerIndex'])->name('admin.importer.index');
+    Route::post('/admin/importer/process-import', [DashboardController::class, 'fetchImporterData'])->name('admin.importer.api');
+    Route::post('/admin/importer/process-import-list', [DashboardController::class, 'fetchImporterDataList'])->name('admin.importer_list.api');
     Route::post('logout', [AuthController::class, 'destroy'])->name('admin.logout');
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile-info-uodate', [ProfileController::class, 'update'])->name('profile.info.update');
     Route::post('/profile-password-update', [ProfileController::class, 'updatePass'])->name('profile.password.update');
+
+    Route::get('/invoice-summary',[DashboardController::class,'invoiceSummary'])->name('admin.importer.invoice.summary');
+    Route::post('extract-text-from-pdf',[DashboardController::class,'processPdf']);
+    Route::post('add-pdf-parse-log',[DashboardController::class,'addPdfParseLog']);
 
 
     Route::controller(UserController::class)->group(function () {
